@@ -3,9 +3,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f3433"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
 <style>
 :root{--ink:#0f3433;--tl:#17696a;--tl2:#e3f0ef;--am:#f4a30a;--bg:#eef2f1;--card:#fff;--tx:#16262a;--mu:#62767a;--bd:#d8e2e1;--rd:#c0392b}
-html{-webkit-text-size-adjust:100%}button,input,select{touch-action:manipulation}*{box-sizing:border-box}body{margin:0;font:14px/1.45 "Segoe UI Variable","Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);font-variant-numeric:tabular-nums}
-.shell{display:flex;min-height:100vh;min-height:100dvh}
-#side{width:232px;flex:none;background:var(--ink);color:#cfe3e1;padding:18px 12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;height:100dvh;overflow-y:auto}
+*{box-sizing:border-box}body{margin:0;font:14px/1.45 "Segoe UI Variable","Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);font-variant-numeric:tabular-nums}
+.shell{display:flex;min-height:100vh}
+#side{width:232px;flex:none;background:var(--ink);color:#cfe3e1;padding:18px 12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh}
 .brand{display:flex;gap:11px;align-items:center;padding:4px 8px 20px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:12px}
 .brand svg{width:38px;height:38px;flex:none;stroke:var(--am);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .brand b{display:block;color:#fff;font-size:15px;line-height:1.2}.brand span{font-size:12px;color:#8fb3b0}
@@ -14,11 +14,11 @@ html{-webkit-text-size-adjust:100%}button,input,select{touch-action:manipulation
 #side>button:hover{background:rgba(255,255,255,.07)}
 #side>button.on{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 3px 0 0 var(--am)}
 .today{margin-top:auto;padding:14px;border-radius:10px;background:rgba(255,255,255,.07)}.today span{font-size:12px;color:#8fb3b0}.today b{display:block;font-size:19px;color:#fff;margin-top:2px}
-.mainw{flex:1;min-width:0}.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:20px 24px 4px}
+.cl{display:block;margin-top:8px;cursor:pointer;color:#8fb3b0;font-size:12px}.mainw{flex:1;min-width:0}.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:20px 24px 4px}
 .top h2{margin:0;font-size:24px;font-weight:700;letter-spacing:-.3px;color:var(--ink)}
 main{padding:12px 24px 32px;max-width:1280px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:16px;overflow-x:auto}
-.grid{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;align-items:start}@media(max-width:1100px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;align-items:start}@media(max-width:1000px){.grid{grid-template-columns:1fr}}
 .grid>.card:last-child{border-top:6px solid var(--am);position:sticky;top:12px;box-shadow:0 18px 32px -22px rgba(15,52,51,.55)}
 input,select,textarea{padding:8px 10px;border:1px solid var(--bd);border-radius:8px;font:inherit;background:#fff;color:var(--tx)}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--tl);outline-offset:-1px;border-color:var(--tl)}
@@ -33,43 +33,31 @@ th{color:var(--mu);font-weight:600;font-size:12.5px;background:#f6f9f8}tbody tr:
 .stat div{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;color:var(--mu)}
 .stat b{display:block;font-size:24px;margin-top:6px;color:var(--ink);letter-spacing:-.4px}
 .stat div:first-child{background:var(--ink);border-color:var(--ink);color:#8fb3b0}.stat div:first-child b{color:#fff}
-.cartbar{display:none}.mbrand{display:none}
-@media(min-width:861px) and (max-height:560px){.today{display:none}.brand{padding-bottom:10px;margin-bottom:6px}#side>button{padding:8px 12px}}
 @media(max-width:860px){
 body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}.shell{flex-direction:column}
 #side{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;height:auto;flex-direction:row;justify-content:space-around;gap:0;padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:20;box-shadow:0 -6px 20px rgba(0,0,0,.22)}
 .brand,.today{display:none}#side>button{flex:1;flex-direction:column;gap:3px;font-size:11px;padding:7px 2px;justify-content:center;text-align:center}#side>button.on{box-shadow:inset 0 3px 0 var(--am)}
-.top{padding:0 0 2px;gap:4px 12px}.top h2{font-size:21px;margin:10px 14px 0}.top>span.mu{margin:0 14px}.mbrand{display:flex;align-items:center;gap:10px;flex:1 1 100%;background:var(--ink);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 14px 10px}.mbrand svg{width:30px;height:30px;flex:none;stroke:var(--am);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.mbrand b{display:block;font-size:17px;line-height:1.2}.mbrand span{font-size:11.5px;color:#8fb3b0}main{padding:10px 12px 24px}.card{padding:12px;overflow-x:auto}
+.top{padding:14px 14px 0}.top h2{font-size:21px}main{padding:10px 12px 24px}.card{padding:12px;overflow-x:auto}
 input,select,textarea{font-size:16px}button.b{min-height:42px}button.s{min-height:34px}.row input,.row select{flex:1 1 130px;min-width:0}
 .grid>.card:last-child{position:static}.grid>.card:first-child{max-height:360px;overflow:auto}
-.plist th:first-child,.plist td:first-child{display:none}
+.card table:not(.cart):not(.plist){min-width:540px}.plist th:first-child,.plist td:first-child{display:none}
 .tot{font-size:26px}.stat b{font-size:20px}
 .cart,.cart tbody{display:block}.cart tr:first-child{display:none}
 .cart tr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 6px;padding:12px 0;border-bottom:1px solid var(--bd)}
 .cart td{border:0;padding:0;text-align:left!important;background:none!important}.cart td:first-child{grid-column:1/4;font-weight:600}
 .cart td:last-child{grid-column:4;grid-row:1;text-align:right!important}.cart td[colspan]{grid-column:1/-1!important;grid-row:auto!important;text-align:left!important}
 .cart td[data-l]::before{content:attr(data-l);display:block;font-size:11px;color:var(--mu);margin-bottom:2px}.cart td input{width:100%!important}
-.cart td.am{grid-column:1/5;text-align:right!important;font-weight:700;font-size:15px}
-.rt,.rt tbody{display:block}.rt tr:first-child{display:none}
-.rt tr{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding:12px 0;border-bottom:1px solid var(--bd)}
-.rt td{border:0;padding:0;background:none!important;text-align:left!important;white-space:normal}
-.rt td[data-l]::before{content:attr(data-l);display:block;font-size:11px;color:var(--mu);margin-bottom:1px}
-.rt td.k{order:-1;grid-column:1/-1;font-weight:600;font-size:15px}.rt td:last-child,.rt td[colspan]{grid-column:1/-1}.rt td:empty{display:none}
-.row>input,.row>select{flex:1 1 130px!important;width:auto!important}
-.row>#pn,.row>#cn,.row>#ca,.row>#q,.row>#cu{flex:1 1 100%!important}.row>div[style*="flex:1"]{flex:1 1 100%!important}.row>button.b{flex:1 1 auto}
-.grid{padding-bottom:58px}.grid>.card:first-child{max-height:min(60vh,420px)}
-.cartbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(72px + env(safe-area-inset-bottom));z-index:15;justify-content:space-between;align-items:center;min-height:46px;box-shadow:0 8px 20px rgba(0,0,0,.25)}}
+.cart td.am{grid-column:1/5;text-align:right!important;font-weight:700;font-size:15px}}
 </style></head><body>
 <div class="shell"><aside id="side"></aside><div class="mainw"><div class="top" id="top"></div><main id="app"></main></div></div>
 <script>
 const KEY="distributor_pos_v1";
 let db;try{db=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 if(!db)db={products:[],customers:[],invoices:[],seq:1,pid:1,cid:1};
-if(!Array.isArray(db.categories))db.categories=[];
 db.settings=Object.assign({name:"Weerakkodi Distributors",addr:"",phone:"",email:"",reg:"",bank:"",note:"Thank you for your business!",tax:0,days:30,auth:"",rep:"",reptp:"",prefix:""},db.settings||{});
-let tab="sale",cart=[],cust="",disc=0,paid="",q="",scat="",pcat="";
-const catOpts=(sel,first)=>`<option value="">${first}</option>`+db.categories.map(c=>`<option value="${esc(c)}" ${sel===c?"selected":""}>${esc(c)}</option>`).join("");
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){alert("Save failed: "+e)}};
+let tab="sale",cart=[],cust="",disc=0,paid="",q="";
+const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){alert("Save failed: "+e)}};
+const save=()=>{persist();queueSync()};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=n=>"Rs. "+(+n||0).toLocaleString("en-LK",{minimumFractionDigits:2,maximumFractionDigits:2});
@@ -80,8 +68,8 @@ function nav(){
  document.title=(db.settings.name||"POS")+" POS";
  $("#side").innerHTML=`<div class="brand"><svg viewBox="0 0 40 40"><path d="M4 9h18v18H4zM22 14h7l6 7v6H22"/><circle cx="11" cy="29" r="3.5"/><circle cx="29" cy="29" r="3.5"/></svg><div><b>${esc(db.settings.name||"POS")}</b><span>Billing &amp; stock</span></div></div>`
  +tabs.map(t=>`<button class="${tab==t[0]?"on":""}" onclick="tab='${t[0]}';render()"><svg viewBox="0 0 24 24">${ic[t[0]]}</svg>${t[1]}</button>`).join("")
- +`<div class="today"><span>Today’s sales</span><b>${m(ts)}</b></div>`;
- $("#top").innerHTML=`<div class="mbrand"><svg viewBox="0 0 40 40"><path d="M4 9h18v18H4zM22 14h7l6 7v6H22"/><circle cx="11" cy="29" r="3.5"/><circle cx="29" cy="29" r="3.5"/></svg><div><b>${esc(db.settings.name||"POS")}</b><span>Billing &amp; stock</span></div></div><h2>${tabs.find(t=>t[0]==tab)[1]}</h2><span class="mu">${new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}</span>`}
+ +`<div class="today"><span>Today’s sales</span><b>${m(ts)}</b><span class="cl" onclick="tab='settings';render()">${cloudTxt()}</span></div>`;
+ $("#top").innerHTML=`<h2>${tabs.find(t=>t[0]==tab)[1]}</h2><span class="mu">${new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}</span>`}
 function render(){nav();$("#app").innerHTML=({sale:vSale,products:vProd,customers:vCust,invoices:vInv,reports:vRep,settings:vSet})[tab]()}
 
 /* SALE */
@@ -90,12 +78,12 @@ const n2=n=>(+n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFract
 const cartTotal=()=>cart.reduce((s,i)=>s+i.qty*i.price,0);
 const calc=()=>{const sub=cartTotal(),disc=cart.reduce((s,i)=>s+(+i.disc||0),0),supply=sub-disc,net=Math.max(0,supply-ret),tax=+(net*(+db.settings.tax||0)/100).toFixed(2);return{sub,disc,supply,net,tax,tot:net+tax}};
 function vSale(){
- const f=db.products.filter(p=>(!scat||p.cat==scat)&&(!q||(p.name+p.code).toLowerCase().includes(q.toLowerCase()))).slice(0,30),{tax,tot}=calc();
+ const f=db.products.filter(p=>!q||(p.name+p.code).toLowerCase().includes(q.toLowerCase())).slice(0,30),{tax,tot}=calc();
  const ni=(x,k,w,mn)=>`<td class="n" data-l="${{qty:"Qty",free:"Free",price:"Price",disc:"Disc (Rs)"}[k]}"><input type="number" min="${mn}" value="${cart[x][k]}" style="width:${w}px" onchange="cart[${x}].${k}=Math.max(${mn},+this.value||${mn});render()"></td>`;
- return `<div class="grid"><div class="card"><div class="row"><input id="q" placeholder="Search product name / code" value="${esc(q)}" oninput="q=this.value;keepFocus(vSale)" style="flex:1"><select id="sc" onchange="scat=this.value;render()">${catOpts(scat,"All categories")}</select></div>
+ return `<div class="grid"><div class="card"><div class="row"><input id="q" placeholder="Search product name / code" value="${esc(q)}" oninput="q=this.value;keepFocus(vSale)" style="flex:1"></div>
  <table class="plist"><tr><th>Code</th><th>Item</th><th class="n">Price</th><th class="n">Stock</th><th></th></tr>
  ${f.map(p=>`<tr><td>${esc(p.code)}</td><td>${esc(p.name)}</td><td class="n">${m(p.price)}</td><td class="n ${p.stock<=0?"low":""}">${p.stock}</td><td><button class="b s" onclick="addCart(${p.id})">Add</button></td></tr>`).join("")||`<tr><td colspan=5 class="mu">No products. Add in Products tab.</td></tr>`}</table></div>
- <div class="card" id="cartcard"><div class="row"><select id="cu" onchange="cust=this.value;render()" style="flex:1"><option value="">Walk-in customer</option>
+ <div class="card"><div class="row"><select id="cu" onchange="cust=this.value;render()" style="flex:1"><option value="">Walk-in customer</option>
  ${db.customers.map(c=>`<option value="${c.id}" ${cust==c.id?"selected":""}>${esc(c.name)} (bal ${m(c.balance)})</option>`).join("")}</select>
  <input placeholder="Sales order no" value="${esc(so)}" oninput="so=this.value" style="width:140px"></div>
  <table class="cart"><tr><th>Item</th><th class="n">Qty</th><th class="n">Free</th><th class="n">Price</th><th class="n">Disc (Rs)</th><th class="n">Amount</th><th></th></tr>
@@ -103,8 +91,7 @@ function vSale(){
  <div class="row" style="margin-top:12px"><span>Returns value</span><input type="number" min="0" value="${ret}" style="width:100px" onchange="ret=+this.value||0;render()">
  <span class="mu" style="margin-left:auto">${tax?"Tax "+m(tax):""}</span><span class="tot">${m(tot)}</span></div>
  <div class="row"><span>Paid now</span><input id="pd" type="number" min="0" placeholder="${tot}" value="${paid}" oninput="paid=this.value" style="width:130px"><span class="mu">(less than total = credit)</span></div>
- <div class="row"><button class="b g" onclick="checkout()">Complete sale &amp; print</button><button class="b r" onclick="cart=[];ret=0;so='';paid='';render()">Clear</button></div></div></div>
- ${cart.length?`<button class="b g cartbar" onclick="document.getElementById('cartcard').scrollIntoView({behavior:'smooth'})"><span>Cart: ${cart.reduce((a,i)=>a+i.qty,0)} items</span><span>${m(tot)} &darr;</span></button>`:""}`}
+ <div class="row"><button class="b g" onclick="checkout()">Complete sale &amp; print</button><button class="b r" onclick="cart=[];ret=0;so='';paid='';render()">Clear</button></div></div></div>`}
 function keepFocus(fn){const v=fn();$("#app").innerHTML=v;const e=$("#q");if(e){e.focus();e.setSelectionRange(q.length,q.length)}}
 function addCart(id){const p=db.products.find(x=>x.id==id);const l=cart.find(i=>i.pid==id);if(l)l.qty++;else cart.push({pid:id,name:p.name,qty:1,free:0,price:p.price,disc:0});render()}
 function checkout(){
@@ -114,7 +101,7 @@ function checkout(){
  for(const i of cart){const p=db.products.find(x=>x.id==i.pid);if(p.stock<i.qty+i.free&&!confirm(`${p.name}: only ${p.stock} in stock. Continue?`))return}
  cart.forEach(i=>{db.products.find(x=>x.id==i.pid).stock-=i.qty+i.free});
  const c=db.customers.find(x=>x.id==cust);if(c)c.balance+=due;
- const inv={no:db.seq++,date:new Date().toISOString(),cust:c?c.name:"Walk-in",custId:cust,so,items:cart.map(i=>({...i,rp:(db.products.find(x=>x.id==i.pid)||{}).rp||0})),sub,disc,supply,ret,tax,taxRate:+db.settings.tax||0,total:tot,paid:pd,due};
+ const inv={id:uid(),no:db.seq++,date:new Date().toISOString(),cust:c?c.name:"Walk-in",custId:cust,so,items:cart.map(i=>({...i,rp:(db.products.find(x=>x.id==i.pid)||{}).rp||0})),sub,disc,supply,ret,tax,taxRate:+db.settings.tax||0,total:tot,paid:pd,due};
  db.invoices.unshift(inv);save();printInv(inv);cart=[];ret=0;so="";paid="";cust="";render()}
 
 function printInv(inv){
@@ -149,109 +136,155 @@ function printInv(inv){
 
 /* SETTINGS */
 function vSet(){const S=db.settings,f=(id,l,v,ph="",t="text")=>`<div style="margin-bottom:10px"><label class="mu">${l}</label><br><input id="${id}" type="${t}" value="${esc(v)}" placeholder="${ph}" style="width:100%"></div>`;
- return `<div class="card" style="max-width:640px"><b>Company details (printed on invoices)</b><div style="margin-top:12px">
+ return cloudCard()+`<div class="card" style="max-width:640px"><b>Company details (printed on invoices)</b><div style="margin-top:12px">
  ${f("sn","Supplier's name",S.name)}${f("sg","Authorized distributor for (top line, optional)",S.auth,"Darley Butler & Co. Ltd")}${f("sr","Supplier's TIN",S.reg)}
  <div style="margin-bottom:10px"><label class="mu">Address</label><br><textarea id="sa" rows="2" style="width:100%;padding:7px 9px;border:1px solid var(--bd);border-radius:6px;font:inherit">${esc(S.addr)}</textarea></div>
  ${f("sp","Telephone No",S.phone)}<div class="row"><div style="flex:1">${f("ss","Sales rep name",S.rep)}</div><div style="flex:1">${f("st","Sales rep TP",S.reptp)}</div></div>
  <div class="row"><div style="flex:1">${f("sv","Invoice no prefix",S.prefix,"DB/INV/2625/2843/")}</div><div style="flex:1">${f("sx","VAT rate % (0 = none)",S.tax,"0","number")}</div></div>
  ${f("sf","Note (printed small at bottom, optional)",S.note)}${f("sb","Bank details (optional)",S.bank)}
- <button class="b g" onclick="saveSet()">Save details</button></div></div>
- <div class="card" style="max-width:640px;border-top:6px solid var(--rd)"><b>Clear invoices &amp; reports</b>
- <p class="mu">Sales, profit and cash reports are calculated from saved invoices, so clearing invoices resets the Reports tab too. Products, stock and customers are kept.</p>
- <label style="display:block;margin-bottom:8px"><input type="checkbox" id="xn"> Restart invoice numbers from 1</label>
- <label style="display:block;margin-bottom:12px"><input type="checkbox" id="xb"> Also set all customer outstanding balances to 0</label>
- <div class="row"><button class="b" onclick="backup()">Download backup first</button><button class="b r" onclick="clearInv()">Clear invoices &amp; reports</button></div>
- <span class="mu">${db.invoices.length} saved invoice / payment records</span></div>`}
+ <button class="b g" onclick="saveSet()">Save details</button></div></div>`}
 function saveSet(){const g=id=>$("#"+id).value.trim();db.settings=Object.assign(db.settings,{name:g("sn")||"My Company",auth:g("sg"),reg:g("sr"),addr:g("sa"),phone:g("sp"),rep:g("ss"),reptp:g("st"),prefix:g("sv"),tax:+g("sx")||0,note:g("sf"),bank:g("sb")});save();render();alert("Saved")}
 
-function clearInv(){const n=db.invoices.length;if(!n)return alert("No invoices to clear");
- if(!confirm(`Delete all ${n} invoice/payment records and reset the reports?\nThis cannot be undone. Download a backup first if unsure.`))return;
- if(prompt("Type CLEAR to confirm")!=="CLEAR")return alert("Cancelled. Nothing was deleted.");
- db.invoices=[];if($("#xn").checked)db.seq=1;if($("#xb").checked)db.customers.forEach(c=>c.balance=0);save();render();alert("Invoices and reports cleared")}
-
 /* PRODUCTS */
-function vProd(){
- const cnt=c=>db.products.filter(p=>p.cat==c).length,unc=db.products.filter(p=>!p.cat).length;
- const list=db.products.filter(p=>!pcat||(pcat=="__none"?!p.cat:p.cat==pcat));
- const chips=db.categories.map((c,i)=>`<span style="display:inline-flex;align-items:center;gap:6px;background:var(--tl2);border-radius:20px;padding:3px 4px 3px 12px;font-weight:600">${esc(c)} <span class="mu" style="font-weight:400">(${cnt(c)})</span><button class="b s" onclick="renameCat(${i})">Edit</button><button class="b r s" onclick="delCat(${i})">x</button></span>`).join("")||`<span class="mu">No categories yet. Add one above.</span>`;
- return `<div class="card"><b>Categories</b><div class="row" style="margin:10px 0"><input id="nc" placeholder="New category name (e.g. Beverages)" style="flex:1" onkeydown="if(event.key=='Enter')addCat()"><button class="b" onclick="addCat()">Add category</button></div><div class="row">${chips}</div></div>
- <div class="card"><div class="row"><input id="pc" placeholder="Code"><input id="pn" placeholder="Product name" style="flex:1"><select id="pt">${catOpts("","No category")}</select><input id="pp" type="number" placeholder="Sell price"><input id="pk" type="number" placeholder="Cost"><input id="pr" type="number" placeholder="Retailer price"><input id="ps" type="number" placeholder="Opening stock"><button class="b" onclick="addProd()">Add product</button></div>
- <div class="row"><span class="mu">Show:</span><select id="pf" onchange="pcat=this.value;render()"><option value="">All categories (${db.products.length})</option><option value="__none" ${pcat=="__none"?"selected":""}>Uncategorized (${unc})</option>${db.categories.map(c=>`<option value="${esc(c)}" ${pcat===c?"selected":""}>${esc(c)} (${cnt(c)})</option>`).join("")}</select></div>
- <table class="rt"><tr><th>Code</th><th>Name</th><th>Category</th><th class="n">Cost</th><th class="n">Price</th><th class="n">Retailer</th><th class="n">Stock</th><th></th></tr>
- ${list.map(p=>`<tr><td data-l="Code">${esc(p.code)}</td><td class="k">${esc(p.name)}</td><td data-l="Category">${esc(p.cat||"-")}</td><td class="n" data-l="Cost">${m(p.cost)}</td><td class="n" data-l="Price">${m(p.price)}</td><td class="n" data-l="Retailer">${m(p.rp)}</td><td class="n ${p.stock<=5?"low":""}" data-l="Stock">${p.stock}</td>
- <td><button class="b s" onclick="restock(${p.id})">+Stock</button> <button class="b s" onclick="editPrice(${p.id})">Price</button> <button class="b s" onclick="setCat(${p.id})">Category</button> <button class="b r s" onclick="delProd(${p.id})">Del</button></td></tr>`).join("")||`<tr><td colspan=8 class="mu">No products</td></tr>`}</table></div>`}
-function addCat(){const e=$("#nc"),n=e.value.trim();if(!n)return alert("Enter category name");if(db.categories.some(c=>c.toLowerCase()==n.toLowerCase()))return alert("Category already exists");db.categories.push(n);save();render();const x=$("#nc");if(x)x.focus()}
-function renameCat(i){const o=db.categories[i],n=(prompt("Rename category:",o)||"").trim();if(!n||n==o)return;if(db.categories.some((c,j)=>j!=i&&c.toLowerCase()==n.toLowerCase()))return alert("Category already exists");db.categories[i]=n;db.products.forEach(p=>{if(p.cat==o)p.cat=n});if(scat==o)scat=n;if(pcat==o)pcat=n;save();render()}
-function delCat(i){const o=db.categories[i],k=db.products.filter(p=>p.cat==o).length;if(!confirm(`Delete category "${o}"?`+(k?`\n${k} product(s) will become uncategorized.`:"")))return;db.categories.splice(i,1);db.products.forEach(p=>{if(p.cat==o)delete p.cat});if(scat==o)scat="";if(pcat==o)pcat="";save();render()}
-function setCat(id){const p=db.products.find(x=>x.id==id);if(!db.categories.length)return alert("Add a category first");const v=prompt("Category for "+p.name+":\n"+db.categories.map((c,i)=>(i+1)+". "+c).join("\n")+"\n\nType the number (0 = no category):",p.cat?db.categories.indexOf(p.cat)+1:0);if(v===null)return;const n=+v;if(isNaN(n)||n<0||n>db.categories.length)return alert("Invalid number");if(n==0)delete p.cat;else p.cat=db.categories[n-1];save();render()}
-function addProd(){const n=$("#pn").value.trim();if(!n)return alert("Enter name");db.products.push({id:db.pid++,code:$("#pc").value.trim(),name:n,price:+$("#pp").value||0,cost:+$("#pk").value||0,rp:+$("#pr").value||0,stock:+$("#ps").value||0,cat:$("#pt").value||undefined});save();render()}
+function vProd(){return `<div class="card"><div class="row"><input id="pc" placeholder="Code"><input id="pn" placeholder="Product name" style="flex:1"><input id="pp" type="number" placeholder="Sell price"><input id="pk" type="number" placeholder="Cost"><input id="pr" type="number" placeholder="Retailer price"><input id="ps" type="number" placeholder="Opening stock"><button class="b" onclick="addProd()">Add product</button></div>
+ <table><tr><th>Code</th><th>Name</th><th class="n">Cost</th><th class="n">Price</th><th class="n">Retailer</th><th class="n">Stock</th><th></th></tr>
+ ${db.products.map(p=>`<tr><td>${esc(p.code)}</td><td>${esc(p.name)}</td><td class="n">${m(p.cost)}</td><td class="n">${m(p.price)}</td><td class="n">${m(p.rp)}</td><td class="n ${p.stock<=5?"low":""}">${p.stock}</td>
+ <td><button class="b s" onclick="restock(${p.id})">+Stock</button> <button class="b s" onclick="editPrice(${p.id})">Price</button> <button class="b r s" onclick="delProd(${p.id})">Del</button></td></tr>`).join("")}</table></div>`}
+function addProd(){const n=$("#pn").value.trim();if(!n)return alert("Enter name");db.products.push({id:uid(),code:$("#pc").value.trim(),name:n,price:+$("#pp").value||0,cost:+$("#pk").value||0,rp:+$("#pr").value||0,stock:+$("#ps").value||0});save();render()}
 function restock(id){const v=+prompt("Add quantity:");if(v){db.products.find(p=>p.id==id).stock+=v;save();render()}}
 function editPrice(id){const p=db.products.find(p=>p.id==id);const v=prompt("New selling price:",p.price);if(v!==null&&!isNaN(+v)){p.price=+v;save();render()}}
 function delProd(id){if(confirm("Delete product?")){db.products=db.products.filter(p=>p.id!=id);save();render()}}
 
 /* CUSTOMERS */
 function vCust(){return `<div class="card"><div class="row"><input id="cn" placeholder="Shop / customer name" style="flex:1"><input id="cp" placeholder="Phone"><input id="ca" placeholder="Address" style="flex:1"><input id="ct" placeholder="TIN"><input id="cl" placeholder="Place of supply"><button class="b" onclick="addCust()">Add customer</button></div>
- <table class="rt"><tr><th>Name</th><th>Phone</th><th class="n">Outstanding</th><th></th></tr>
- ${db.customers.map(c=>`<tr><td class="k">${esc(c.name)}</td><td data-l="Phone">${esc(c.phone)}</td><td class="n ${c.balance>0?"low":""}" data-l="Outstanding">${m(c.balance)}</td><td><button class="b g s" onclick="recvPay(${c.id})">Receive payment</button> <button class="b r s" onclick="delCust(${c.id})">Del</button></td></tr>`).join("")}</table></div>`}
-function addCust(){const n=$("#cn").value.trim();if(!n)return alert("Enter name");db.customers.push({id:db.cid++,name:n,phone:$("#cp").value.trim(),address:$("#ca").value.trim(),tin:$("#ct").value.trim(),place:$("#cl").value.trim(),balance:0});save();render()}
-function recvPay(id){const c=db.customers.find(x=>x.id==id);const v=+prompt(`${c.name} owes ${m(c.balance)}. Amount received:`);if(v>0){c.balance-=v;db.invoices.unshift({no:"PAY"+db.seq++,date:new Date().toISOString(),cust:c.name,custId:id,items:[],sub:0,disc:0,total:0,paid:v,due:0,payment:true});save();render()}}
+ <table><tr><th>Name</th><th>Phone</th><th class="n">Outstanding</th><th></th></tr>
+ ${db.customers.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.phone)}</td><td class="n ${c.balance>0?"low":""}">${m(c.balance)}</td><td><button class="b g s" onclick="recvPay(${c.id})">Receive payment</button> <button class="b r s" onclick="delCust(${c.id})">Del</button></td></tr>`).join("")}</table></div>`}
+function addCust(){const n=$("#cn").value.trim();if(!n)return alert("Enter name");db.customers.push({id:uid(),name:n,phone:$("#cp").value.trim(),address:$("#ca").value.trim(),tin:$("#ct").value.trim(),place:$("#cl").value.trim(),balance:0});save();render()}
+function recvPay(id){const c=db.customers.find(x=>x.id==id);const v=+prompt(`${c.name} owes ${m(c.balance)}. Amount received:`);if(v>0){c.balance-=v;db.invoices.unshift({id:uid(),no:"PAY"+db.seq++,date:new Date().toISOString(),cust:c.name,custId:id,items:[],sub:0,disc:0,total:0,paid:v,due:0,payment:true});save();render()}}
 function delCust(id){if(confirm("Delete customer?")){db.customers=db.customers.filter(c=>c.id!=id);save();render()}}
 
 /* INVOICES */
-function vInv(){return `<div class="card"><table class="rt"><tr><th>No</th><th>Date</th><th>Customer</th><th class="n">Total</th><th class="n">Paid</th><th class="n">Due</th><th></th></tr>
- ${db.invoices.map((v,x)=>`<tr><td data-l="No">${v.no}</td><td data-l="Date">${new Date(v.date).toLocaleString()}</td><td class="k">${esc(v.cust)}</td><td class="n" data-l="Total">${v.payment?"Payment":m(v.total)}</td><td class="n" data-l="Paid">${m(v.paid)}</td><td class="n" data-l="Due">${m(v.due)}</td><td>${v.payment?"":`<button class="b s" onclick="printInv(db.invoices[${x}])">Print</button>`}</td></tr>`).join("")||`<tr><td colspan=7 class="mu">No invoices yet</td></tr>`}</table></div>`}
+const ld=d=>{d=new Date(d);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+let fd=ld(new Date()),td=fd,fq="";
+function setRange(k){const n=new Date(),d=x=>{const y=new Date(n);y.setDate(n.getDate()+x);return ld(y)};
+ if(k=="today")fd=td=ld(n);else if(k=="yest")fd=td=d(-1);else if(k=="week"){fd=d(-((n.getDay()+6)%7));td=ld(n)}else if(k=="month"){fd=ld(new Date(n.getFullYear(),n.getMonth(),1));td=ld(n)}else{fd=td=""}
+ render()}
+function vInv(){
+ const rows=db.invoices.map((v,x)=>[v,x]).filter(([v])=>{const d=ld(v.date);return(!fd||d>=fd)&&(!td||d<=td)&&(!fq||(v.cust+" "+v.no).toLowerCase().includes(fq.toLowerCase()))});
+ const sales=rows.filter(([v])=>!v.payment),tot=sales.reduce((a,[v])=>a+v.total,0),col=rows.reduce((a,[v])=>a+v.paid,0),cr=sales.reduce((a,[v])=>a+v.due,0);
+ const bt=(k,l)=>`<button class="b s" onclick="setRange('${k}')">${l}</button>`;
+ return `<div class="card"><div class="row">${bt("today","Today")}${bt("yest","Yesterday")}${bt("week","This week")}${bt("month","This month")}${bt("all","All")}</div>
+ <div class="row"><span class="mu">From</span><input type="date" value="${fd}" onchange="fd=this.value;render()"><span class="mu">To</span><input type="date" value="${td}" onchange="td=this.value;render()"><input placeholder="Search customer / invoice no" value="${esc(fq)}" onchange="fq=this.value;render()" style="flex:1;min-width:180px"></div>
+ <div class="stat" style="margin-bottom:14px"><div>Invoices<b>${sales.length}</b></div><div>Sales total<b>${m(tot)}</b></div><div>Cash collected<b>${m(col)}</b></div><div>Credit given<b>${m(cr)}</b></div></div>
+ <table><tr><th>No</th><th>Date</th><th>Customer</th><th class="n">Total</th><th class="n">Paid</th><th class="n">Due</th><th></th></tr>
+ ${rows.map(([v,x])=>`<tr><td>${v.no}</td><td>${new Date(v.date).toLocaleString()}</td><td>${esc(v.cust)}</td><td class="n">${v.payment?"Payment":m(v.total)}</td><td class="n">${m(v.paid)}</td><td class="n">${m(v.due)}</td><td>${v.payment?"":`<button class="b s" onclick="printInv(db.invoices[${x}])">Print</button>`}</td></tr>`).join("")||`<tr><td colspan=7 class="mu">No invoices for this date range</td></tr>`}</table></div>`}
 
 /* REPORTS */
+function rangeBar(){const bt=(k,l)=>`<button class="b s" onclick="setRange('${k}')">${l}</button>`;
+ return `<div class="row">${bt("today","Today")}${bt("yest","Yesterday")}${bt("week","This week")}${bt("month","This month")}${bt("all","All")}</div>
+ <div class="row"><span class="mu">From</span><input type="date" value="${fd}" onchange="fd=this.value;render()"><span class="mu">To</span><input type="date" value="${td}" onchange="td=this.value;render()"><button class="b s" onclick="csvInv()" style="margin-left:auto">Download CSV</button></div>`}
+const inRange=()=>db.invoices.filter(v=>{const d=ld(v.date);return(!fd||d>=fd)&&(!td||d<=td)});
+function csvInv(){const q=x=>'"'+String(x??"").replace(/"/g,'""')+'"',r=[["No","Date","Customer","Total","Paid","Due","Type"]];
+ inRange().forEach(v=>r.push([v.no,new Date(v.date).toLocaleString(),v.cust,v.total,v.paid,v.due,v.payment?"Payment":"Sale"]));
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+r.map(x=>x.map(q).join(",")).join("\n")],{type:"text/csv"}));a.download="invoices-"+(fd||"all")+"_"+(td||"all")+".csv";a.click()}
 function vRep(){
- const today=new Date().toDateString(),ti=db.invoices.filter(v=>!v.payment&&new Date(v.date).toDateString()==today);
- const cost=id=>db.products.find(p=>p.id==id)?.cost||0;
- const profit=ti.reduce((s,v)=>s+v.items.reduce((a,i)=>a+i.qty*(i.price-cost(i.pid)),0)-v.disc,0);
- const stockVal=db.products.reduce((s,p)=>s+p.stock*p.cost,0),recv=db.customers.reduce((s,c)=>s+c.balance,0);
+ const rows=inRange(),sales=rows.filter(v=>!v.payment),cost=id=>(db.products.find(p=>p.id==id)||{}).cost||0,it={},cu={},dy={};let profit=0;
+ sales.forEach(v=>{
+  const sup=(v.supply??((v.sub||0)-(v.disc||0)))-(v.ret||0);
+  v.items.forEach(i=>{const a=i.qty*i.price-(i.disc||0),p=a-(i.qty+(i.free||0))*cost(i.pid),o=it[i.name]=it[i.name]||{q:0,f:0,a:0,p:0};o.q+=i.qty;o.f+=i.free||0;o.a+=a;o.p+=p});
+  profit+=sup-v.items.reduce((a,i)=>a+(i.qty+(i.free||0))*cost(i.pid),0);
+  const c=cu[v.cust]=cu[v.cust]||{n:0,t:0,p:0,d:0};c.n++;c.t+=v.total;c.p+=v.paid;c.d+=v.due;
+  const d=dy[ld(v.date)]=dy[ld(v.date)]||{n:0,t:0};d.n++;d.t+=v.total});
+ const tot=sales.reduce((a,v)=>a+v.total,0),col=rows.reduce((a,v)=>a+v.paid,0),cr=sales.reduce((a,v)=>a+v.due,0);
+ const tb=(h,list,fn)=>`<table><tr>${h.map((x,i)=>`<th class="${i?"n":""}">${x}</th>`).join("")}</tr>${list.map(fn).join("")||`<tr><td colspan=${h.length} class="mu">No sales in this range</td></tr>`}</table>`;
  const low=db.products.filter(p=>p.stock<=5);
- return `<div class="stat"><div>Today sales<b>${m(ti.reduce((s,v)=>s+v.total,0))}</b></div><div>Today profit (est.)<b>${m(profit)}</b></div><div>Cash collected today<b>${m(db.invoices.filter(v=>new Date(v.date).toDateString()==today).reduce((s,v)=>s+v.paid,0))}</b></div><div>Total receivables<b>${m(recv)}</b></div><div>Stock value (cost)<b>${m(stockVal)}</b></div></div>
- <div class="card" style="margin-top:14px"><b>Low stock (5 or less)</b><table>${low.map(p=>`<tr><td>${esc(p.name)}</td><td class="n low">${p.stock}</td></tr>`).join("")||`<tr><td class="mu">All good</td></tr>`}</table></div>
- <div class="card"><b>Backup</b><p class="mu">Data is saved in this browser only. Backup regularly! The Excel file has the report, products, customers, invoices and invoice items. Use the .json backup to restore data.</p><div class="row"><button class="b g" onclick="exportXlsx()">Download Excel (.xlsx)</button><button class="b" onclick="backup()">Download backup (.json)</button><input type="file" id="rf" accept=".json" onchange="restore(this)"></div></div>`}
-/* EXCEL */
-const crcT=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
-const crc32=b=>{let c=-1;for(let i=0;i<b.length;i++)c=crcT[(c^b[i])&255]^(c>>>8);return(c^-1)>>>0};
-function zipBlob(files){const e=new TextEncoder(),parts=[],cd=[];let off=0;
- for(const[name,data]of files){const nb=e.encode(name),d=e.encode(data),crc=crc32(d);
-  const h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(12,0x21,true);h.setUint32(14,crc,true);h.setUint32(18,d.length,true);h.setUint32(22,d.length,true);h.setUint16(26,nb.length,true);
-  parts.push(new Uint8Array(h.buffer),nb,d);
-  const c=new DataView(new ArrayBuffer(46));c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(14,0x21,true);c.setUint32(16,crc,true);c.setUint32(20,d.length,true);c.setUint32(24,d.length,true);c.setUint16(28,nb.length,true);c.setUint32(42,off,true);
-  cd.push(new Uint8Array(c.buffer),nb);off+=30+nb.length+d.length}
- const cs=cd.reduce((a,b)=>a+b.length,0),z=new DataView(new ArrayBuffer(22));z.setUint32(0,0x06054b50,true);z.setUint16(8,files.length,true);z.setUint16(10,files.length,true);z.setUint32(12,cs,true);z.setUint32(16,off,true);
- return new Blob([...parts,...cd,new Uint8Array(z.buffer)],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"})}
-const xe=s=>String(s??"").replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-const xcol=i=>{let s="";for(i++;i;i=Math.floor((i-1)/26))s=String.fromCharCode(65+(i-1)%26)+s;return s};
-function xsheet(rows){const W=rows[0].map((_,i)=>Math.min(50,Math.max(10,...rows.map(r=>String(r[i]&&r[i].m!==undefined?r[i].m.toFixed(2):r[i]??"").length+2))));
- return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${W.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join("")}</cols><sheetData>`
- +rows.map((r,y)=>`<row r="${y+1}">`+r.map((v,x)=>{const a=xcol(x)+(y+1);
-  if(v&&typeof v=="object")return `<c r="${a}" s="2"><v>${v.m}</v></c>`;
-  if(typeof v=="number")return `<c r="${a}"><v>${v}</v></c>`;
-  return `<c r="${a}"${y?"":' s="1"'} t="inlineStr"><is><t xml:space="preserve">${xe(v)}</t></is></c>`}).join("")+"</row>").join("")+"</sheetData></worksheet>"}
-function buildXlsx(){
- const S=db.settings,M=v=>({m:+v||0}),p2=n=>String(n).padStart(2,"0"),dt=d=>{const x=new Date(d);return x.getFullYear()+"-"+p2(x.getMonth()+1)+"-"+p2(x.getDate())+" "+p2(x.getHours())+":"+p2(x.getMinutes())};
- const pay=v=>!!v.payment,no=v=>pay(v)?String(v.no):(S.prefix||"")+String(v.no).padStart(5,"0"),today=new Date().toDateString();
- const sales=db.invoices.filter(v=>!pay(v)),ti=sales.filter(v=>new Date(v.date).toDateString()==today),cost=id=>(db.products.find(p=>p.id==id)||{}).cost||0;
- const profit=ti.reduce((s,v)=>s+v.items.reduce((a,i)=>a+i.qty*(i.price-cost(i.pid)),0)-(v.disc||0),0);
- const sum=(a,f)=>a.reduce((s,x)=>s+(+f(x)||0),0);
- const sh=[["Summary",[["Report","Value"],["Generated",dt(new Date())],["Today sales",M(sum(ti,v=>v.total))],["Today profit (est.)",M(profit)],["Cash collected today",M(sum(db.invoices.filter(v=>new Date(v.date).toDateString()==today),v=>v.paid))],["Total receivables",M(sum(db.customers,c=>c.balance))],["Stock value (cost)",M(sum(db.products,p=>p.stock*p.cost))],["All-time sales",M(sum(sales,v=>v.total))],["Number of invoices",sales.length]]],
- ["Products",[["Code","Name","Category","Cost","Price","Retailer price","Stock"],...db.products.map(p=>[p.code||"",p.name,p.cat||"",M(p.cost),M(p.price),M(p.rp),+p.stock||0])]],
- ["Customers",[["Name","Phone","Address","TIN","Place of supply","Outstanding"],...db.customers.map(c=>[c.name,c.phone||"",c.address||"",c.tin||"",c.place||"",M(c.balance)])]],
- ["Invoices",[["Invoice No","Date","Customer","Sales Order","Type","Subtotal","Discount","Returns","Tax","Total","Paid","Due"],...db.invoices.map(v=>[no(v),dt(v.date),v.cust||"",v.so||"",pay(v)?"Payment":"Sale",M(v.sub),M(v.disc),M(v.ret),M(v.tax),M(v.total),M(v.paid),M(v.due)])]],
- ["Invoice Items",[["Invoice No","Date","Customer","Item","Qty","Free","Price","Discount","Amount"],...sales.flatMap(v=>(v.items||[]).map(i=>[no(v),dt(v.date),v.cust||"",i.name,+i.qty||0,+i.free||0,M(i.price),M(i.disc),M(i.qty*i.price-(i.disc||0))]))]]];
- const NS="http://schemas.openxmlformats.org/",R=NS+"officeDocument/2006/relationships",X='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>',MN=NS+"spreadsheetml/2006/main",CT="application/vnd.openxmlformats-officedocument.spreadsheetml.";
- const files=[["[Content_Types].xml",X+`<Types xmlns="${NS}package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="${CT}sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="${CT}styles+xml"/>${sh.map((_,i)=>`<Override PartName="/xl/worksheets/sheet${i+1}.xml" ContentType="${CT}worksheet+xml"/>`).join("")}</Types>`],
- ["_rels/.rels",X+`<Relationships xmlns="${NS}package/2006/relationships"><Relationship Id="rId1" Type="${R}/officeDocument" Target="xl/workbook.xml"/></Relationships>`],
- ["xl/workbook.xml",X+`<workbook xmlns="${MN}" xmlns:r="${R}"><sheets>${sh.map((s,i)=>`<sheet name="${s[0]}" sheetId="${i+1}" r:id="rId${i+1}"/>`).join("")}</sheets></workbook>`],
- ["xl/_rels/workbook.xml.rels",X+`<Relationships xmlns="${NS}package/2006/relationships">${sh.map((_,i)=>`<Relationship Id="rId${i+1}" Type="${R}/worksheet" Target="worksheets/sheet${i+1}.xml"/>`).join("")}<Relationship Id="rId${sh.length+1}" Type="${R}/styles" Target="styles.xml"/></Relationships>`],
- ["xl/styles.xml",X+`<styleSheet xmlns="${MN}"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="3"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/><xf numFmtId="4" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/></cellXfs></styleSheet>`],
- ...sh.map((s,i)=>[`xl/worksheets/sheet${i+1}.xml`,xsheet(s[1])])];
- return zipBlob(files)}
-function exportXlsx(){const a=document.createElement("a");a.href=URL.createObjectURL(buildXlsx());a.download="pos-report-"+new Date().toISOString().slice(0,10)+".xlsx";a.click()}
-/* /EXCEL */
+ return `<div class="card">${rangeBar()}<div class="stat"><div>Sales total<b>${m(tot)}</b></div><div>Profit (est.)<b>${m(profit)}</b></div><div>Cash collected<b>${m(col)}</b></div><div>Credit given<b>${m(cr)}</b></div><div>Invoices<b>${sales.length}</b></div></div>
+ <p class="mu" style="margin:10px 0 0">Profit uses each product's current cost price, free items counted as cost.</p></div>
+ <div class="card"><b>Sales by item</b>${tb(["Item","Qty","Free","Sales","Profit"],Object.entries(it).sort((a,b)=>b[1].a-a[1].a),([k,o])=>`<tr><td>${esc(k)}</td><td class="n">${o.q}</td><td class="n">${o.f}</td><td class="n">${m(o.a)}</td><td class="n">${m(o.p)}</td></tr>`)}</div>
+ <div class="card"><b>Sales by customer</b>${tb(["Customer","Invoices","Sales","Paid","Credit"],Object.entries(cu).sort((a,b)=>b[1].t-a[1].t),([k,o])=>`<tr><td>${esc(k)}</td><td class="n">${o.n}</td><td class="n">${m(o.t)}</td><td class="n">${m(o.p)}</td><td class="n ${o.d>0?"low":""}">${m(o.d)}</td></tr>`)}</div>
+ <div class="card"><b>Sales by day</b>${tb(["Date","Invoices","Sales"],Object.entries(dy).sort((a,b)=>a[0]<b[0]?1:-1),([k,o])=>`<tr><td>${k}</td><td class="n">${o.n}</td><td class="n">${m(o.t)}</td></tr>`)}</div>
+ <div class="card"><b>Stock &amp; receivables (all time)</b><div class="stat" style="margin-top:10px"><div>Total receivables<b>${m(db.customers.reduce((a,c)=>a+c.balance,0))}</b></div><div>Stock value (cost)<b>${m(db.products.reduce((a,p)=>a+p.stock*p.cost,0))}</b></div></div>
+ <p style="margin:14px 0 4px"><b>Low stock (5 or less)</b></p><table>${low.map(p=>`<tr><td>${esc(p.name)}</td><td class="n low">${p.stock}</td></tr>`).join("")||`<tr><td class="mu">All good</td></tr>`}</table></div>
+ <div class="card"><b>Backup</b><p class="mu">Data is saved in this browser. Backup regularly!</p><div class="row"><button class="b" onclick="backup()">Download backup</button><input type="file" id="rf" accept=".json" onchange="restore(this)"></div></div>`}
 function backup(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(db)],{type:"application/json"}));a.download="pos-backup-"+new Date().toISOString().slice(0,10)+".json";a.click()}
-function restore(el){const f=el.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.products)throw 0;if(!Array.isArray(d.categories))d.categories=[];if(confirm("Replace current data with backup?")){db=d;save();render()}}catch(e){alert("Invalid backup file")}};r.readAsText(f)}
+function restore(el){const f=el.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.products)throw 0;if(confirm("Replace current data with backup?")){db=d;save();render()}}catch(e){alert("Invalid backup file")}};r.readAsText(f)}
+
+/* CLOUD SYNC (InsForge) */
+const CF={url:"https://4ygctrff.ap-southeast.insforge.app",anon:"anon_fb892ff2660201598c015df4ec42d6e5999ad35247d3a106879fd859d355607c"};
+let au=null;try{au=JSON.parse(localStorage.getItem("pos_auth"))}catch(e){}
+let sst="",syncing=false,timer=null,lastS=0,_u=Math.floor(Math.random()*1000);
+const uid=()=>Date.now()*1000+(_u=(_u+1)%1000);
+const saveAu=()=>{try{au?localStorage.setItem("pos_auth",JSON.stringify(au)):localStorage.removeItem("pos_auth")}catch(e){}};
+const cloudTxt=()=>au?"● "+(sst||"Cloud sync on"):"○ Cloud sync off";
+async function raw(p,o={},tok){const r=await fetch(CF.url+p,{...o,headers:{"Content-Type":"application/json",Authorization:"Bearer "+(tok||CF.anon),...(o.headers||{})}});const t=await r.text();let d=null;try{d=t?JSON.parse(t):null}catch(e){}
+ if(!r.ok){const e=new Error((d&&(d.message||d.error))||"HTTP "+r.status);e.status=r.status;throw e}return d}
+async function refreshTok(){if(!au||!au.refreshToken)throw Object.assign(new Error("Signed out"),{status:401});const d=await raw("/api/auth/refresh?client_type=desktop",{method:"POST",body:JSON.stringify({refreshToken:au.refreshToken})});au={...au,accessToken:d.accessToken,refreshToken:d.refreshToken||au.refreshToken};saveAu()}
+async function api(p,o){if(!au)throw new Error("Not signed in");try{return await raw(p,o,au.accessToken)}catch(e){if(e.status!==401)throw e;await refreshTok();return await raw(p,o,au.accessToken)}}
+async function getAll(ep){let out=[],off=0;for(;;){const r=await api(`/api/database/records/${ep}?limit=1000&offset=${off}`);if(!r||!r.length)break;out=out.concat(r);off+=r.length;if(off>200000)break}return out}
+const up=(ep,rows)=>rows.length?api(`/api/database/records/${ep}`,{method:"POST",headers:{Prefer:"resolution=merge-duplicates"},body:JSON.stringify(rows)}):0;
+const st=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a<b?-1:a>b?1:0)):v);
+const SP={
+ products:{ep:"products",loc:()=>db.products,set:a=>db.products=a,
+  to:p=>({id:String(p.id),code:p.code||"",name:p.name,price:p.price||0,cost:p.cost||0,rp:p.rp||0,stock:p.stock||0}),
+  from:r=>({id:+r.id,code:r.code||"",name:r.name,price:+r.price||0,cost:+r.cost||0,rp:+r.rp||0,stock:+r.stock||0})},
+ customers:{ep:"customers",loc:()=>db.customers,set:a=>db.customers=a,
+  to:c=>({id:String(c.id),name:c.name,phone:c.phone||"",address:c.address||"",tin:c.tin||"",place:c.place||"",balance:c.balance||0}),
+  from:r=>({id:+r.id,name:r.name,phone:r.phone||"",address:r.address||"",tin:r.tin||"",place:r.place||"",balance:+r.balance||0})},
+ invoices:{ep:"invoices",loc:()=>db.invoices,set:a=>db.invoices=a.sort((x,y)=>x.date<y.date?1:-1),nodel:1,
+  fetch:async()=>{const [iv,it]=await Promise.all([getAll("invoices"),getAll("invoice_items")]),g={};it.forEach(i=>(g[i.invoice_id]=g[i.invoice_id]||[]).push(i));return iv.map(v=>({...v,items:g[v.id]||[]}))},
+  push:async rows=>{await up("invoices",rows.map(({items,...r})=>r));await up("invoice_items",rows.flatMap(r=>r.items))},
+  to:v=>({id:String(v.id),no:String(v.no),invoice_date:v.date,customer_id:v.custId===""||v.custId==null?null:String(v.custId),customer_name:v.cust,sales_order:v.so||"",subtotal:v.sub||0,discount:v.disc||0,supply:v.supply??((v.sub||0)-(v.disc||0)),returns_value:v.ret||0,tax:v.tax||0,tax_rate:v.taxRate||0,total:v.total||0,paid:v.paid||0,due:v.due||0,is_payment:!!v.payment,
+   items:(v.items||[]).map((i,x)=>({id:v.id+"-"+x,invoice_id:String(v.id),product_id:String(i.pid),name:i.name,qty:i.qty,free:i.free||0,price:i.price,discount:i.disc||0,retailer_price:i.rp||0}))}),
+  from:r=>({id:+r.id,no:/^\d+$/.test(r.no)?+r.no:r.no,date:new Date(r.invoice_date).toISOString(),cust:r.customer_name,custId:r.customer_id==null?"":+r.customer_id,so:r.sales_order||"",
+   items:[...(r.items||[])].sort((a,b)=>+String(a.id).split("-")[1]-+String(b.id).split("-")[1]).map(i=>({pid:+i.product_id,name:i.name,qty:+i.qty,free:+i.free,price:+i.price,disc:+i.discount,rp:+i.retailer_price})),
+   sub:+r.subtotal,disc:+r.discount,supply:+r.supply,ret:+r.returns_value,tax:+r.tax,taxRate:+r.tax_rate,total:+r.total,paid:+r.paid,due:+r.due,...(r.is_payment?{payment:true}:{})})},
+ settings:{ep:"settings",nodel:1,rf:()=>!db.settings.addr&&!db.settings.phone&&!db.settings.reg,loc:()=>[{id:"me",data:db.settings,counters:{seq:db.seq}}],
+  set:a=>{const x=a[0];if(x){Object.assign(db.settings,x.data);db.seq=Math.max(db.seq,+x.counters.seq||1)}},
+  un:r=>({...r,id:"me"}),push:rows=>up("settings",rows.map(r=>({data:r.data,counters:r.counters,updated_at:new Date().toISOString()}))),
+  to:x=>({id:"me",data:x.data,counters:x.counters}),from:r=>({id:"me",data:r.data,counters:r.counters})}};
+function migrate(){const pm={},cm={};
+ db.products.forEach(p=>{if(p.id<1e12){const n=uid();pm[p.id]=n;p.id=n}});
+ db.customers.forEach(c=>{if(c.id<1e12){const n=uid();cm[c.id]=n;c.id=n}});
+ db.invoices.forEach(v=>{if(!v.id)v.id=uid();if(v.custId!==""&&cm[v.custId])v.custId=cm[v.custId];(v.items||[]).forEach(i=>{if(pm[i.pid])i.pid=pm[i.pid]})});
+ if(Object.keys(pm).length)cart=[];persist()}
+function queueSync(){if(!au)return;clearTimeout(timer);timer=setTimeout(()=>syncNow(1),2500)}
+async function syncNow(force){
+ if(!au||syncing||(!force&&Date.now()-lastS<10000))return;
+ syncing=true;lastS=Date.now();sst="Syncing…";nav();let changed=false;
+ try{
+  migrate();const snap=db.snap||{},ns={};
+  for(const [k,S] of Object.entries(SP)){
+   const rem=(S.fetch?await S.fetch():await getAll(S.ep)).map(S.un||(x=>x)),nz=r=>st(S.from(r)),snp=snap[k]||{};
+   const L=new Map(S.loc().map(x=>[String(x.id),x])),R=new Map(rem.map(x=>[String(S.from(x).id),x])),out=[],push=[],del=[],nsnap={};
+   for(const id of new Set([...L.keys(),...R.keys(),...Object.keys(snp)])){
+    const l=L.get(id),r=R.get(id),s=snp[id],ln=l&&nz(S.to(l)),rn=r&&nz(r);let keep=null;
+    if(l&&r){if(ln==rn)keep=l;else if(ln!=s&&!(S.rf&&s===undefined&&S.rf())){keep=l;push.push(S.to(l))}else{keep=S.from(r);changed=true}}
+    else if(l){if(s!==undefined&&ln==s)changed=true;else{keep=l;push.push(S.to(l))}}
+    else if(r){if(s!==undefined)del.push(id);else{keep=S.from(r);changed=true}}
+    if(keep){out.push(keep);nsnap[id]=nz(S.to(keep))}
+   }
+   for(let i=0;i<push.length;i+=200){const part=push.slice(i,i+200);await(S.push?S.push(part):up(S.ep,part))}
+   if(!S.nodel)for(const id of del)await api(`/api/database/records/${S.ep}?id=eq.${encodeURIComponent(id)}`,{method:"DELETE"});
+   S.set(out);ns[k]=nsnap;
+  }
+  db.snap=ns;const mx=db.invoices.reduce((a,v)=>/^\d+$/.test(v.no)?Math.max(a,+v.no):a,0);db.seq=Math.max(db.seq,mx+1);
+  persist();sst="Synced "+new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
+ }catch(e){if(e.status===401){au=null;saveAu();sst="";alert("Cloud session expired. Please sign in again.")}else sst=e instanceof TypeError?"Offline - will retry":"Sync error: "+e.message}
+ syncing=false;const a=document.activeElement;
+ if(changed&&!cart.length&&!(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)))render();else nav();
+}
+async function authDo(mode){
+ const em=$("#ce").value.trim(),pw=$("#cp2").value;if(!em||!pw)return alert("Enter email and password");
+ try{let d;
+  if(mode=="up"){d=await raw("/api/auth/users?client_type=desktop",{method:"POST",body:JSON.stringify({email:em,password:pw})});
+   if(d.requireEmailVerification||!d.accessToken){const c=prompt("Enter the 6-digit code emailed to "+em);if(!c)return;d=await raw("/api/auth/email/verify?client_type=desktop",{method:"POST",body:JSON.stringify({email:em,otp:c.trim()})})}}
+  else d=await raw("/api/auth/sessions?client_type=desktop",{method:"POST",body:JSON.stringify({method:"password",email:em,password:pw})});
+  au={email:em,accessToken:d.accessToken,refreshToken:d.refreshToken};saveAu();render();syncNow(1)
+ }catch(e){alert(e instanceof TypeError?"Cannot reach the cloud (check internet).":e.message)}}
+function signOut(){if(!confirm("Sign out? Data stays on this device."))return;au=null;saveAu();sst="";db.snap={};persist();render()}
+function cloudCard(){return au?`<div class="card" style="max-width:640px"><b>Cloud sync</b><p class="mu">Signed in as ${esc(au.email)}<br>${esc(sst||"")}</p><div class="row"><button class="b g" onclick="syncNow(1)">Sync now</button><button class="b r" onclick="signOut()">Sign out</button></div></div>`
+ :`<div class="card" style="max-width:640px"><b>Cloud sync (PC + phone)</b><p class="mu">Use the same email and password on every device to share one set of data.</p><div class="row"><input id="ce" type="email" placeholder="Email" style="flex:1"><input id="cp2" type="password" placeholder="Password" style="flex:1"></div><div class="row"><button class="b" onclick="authDo('in')">Sign in</button><button class="b g" onclick="authDo('up')">Create account</button></div></div>`}
+setInterval(()=>syncNow(),60000);addEventListener("online",()=>syncNow(1));addEventListener("focus",()=>syncNow());
+if(au)syncNow(1);
 render();
 </script></body></html>
